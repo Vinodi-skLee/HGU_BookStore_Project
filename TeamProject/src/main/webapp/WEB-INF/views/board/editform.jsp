@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="com.project.dao.BoardDAO,com.project.bean.BoardVO"%>
+<%@page import="com.mycom.spring3.board.BoardDAO,com.mycom.spring3.board.BoardVO"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
