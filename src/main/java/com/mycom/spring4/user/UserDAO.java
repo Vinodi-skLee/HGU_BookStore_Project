@@ -18,6 +18,11 @@ public class UserDAO {
 		return one;
 	}
 	
+	public UserVO getDuplicatedUser(UserVO vo) {
+		UserVO one = sqlSession.selectOne("User.getDuplicatedUser", vo);
+		return one;
+	}
+	
 	public int insertUser(UserVO vo) {
 		int count = sqlSession.insert("User.insertUser", vo);
 		return count;

@@ -28,20 +28,8 @@ public class BoardController {
 	
 	@Autowired
 	UserDAO userService;
-	//UserService
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String homePage(Locale locale, Model model) {
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate );
-		return "index";
-	}
-	
-	@RequestMapping(value = "/login/login", method = RequestMethod.GET)
 	public String login() {
 		return "/login/login";
 	}
@@ -61,7 +49,7 @@ public class BoardController {
 			returnURL = "redirect:/board/list";
 		} else {
 			System.out.println("로그인 실패!");
-			returnURL = "redirect:/login/login";
+			returnURL = "redirect:/";
 		}
 		return returnURL;
 	}
@@ -73,13 +61,26 @@ public class BoardController {
 	
 	
 	@RequestMapping(value = "/login/signinok", method = RequestMethod.POST)
-	public String signinOK(UserVO vo) {
-		int i = userService.insertUser(vo);
-		if (i==0)
-			System.out.println("회원 추가 실패!");
-		else
-			System.out.println("회원 추가 성공!!!");
-		return "redirect:/login/login";
+	public String signinoK(HttpSession session, UserVO vo, Model model) {
+		System.out.println("중복체크 들어옴!");
+		String msg = " ";
+		UserVO signinvo = userService.getDuplicatedUser(vo);
+		if (signinvo != null) { // 중복 데이터 존재
+			System.out.println("중복 데이터 존재!");
+			msg = "회원가입 실패: 중복 데이터 존재함!";
+		} else {// 중복 데이터 없음
+			int i = userService.insertUser(vo);
+			if (i==0) {
+				System.out.println("회원 추가 실패!");
+				msg = "회원가입 실패: 데이타 베이스 저장 실패!";
+			}	
+			else {
+				System.out.println("회원 추가 성공!!!");
+				msg = "회원가입 성공!";
+			}	
+		}
+		model.addAttribute("msg", msg);
+		return "/login/signinAlert";
 	}
 	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
@@ -120,7 +121,7 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	@RequestMapping(value = "/board/detail/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/board/detail/{id}", method = RequestMethod.GET)
 	public String detail(@PathVariable("id") int id) {
 		return "/board/detail";
 	}

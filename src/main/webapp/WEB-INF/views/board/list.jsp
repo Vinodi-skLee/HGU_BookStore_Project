@@ -91,7 +91,7 @@
                 <td style="align-items:flex-end;">
                     <button type="button" id="detailbutton" onclick="location.href='detail/${u.seq}'">상세보기</button><br><br>
                     <button type="button" id="editbutton" onclick="location.href='editform/${u.seq}'">수정</button><br><br>
-                    <button type="button" id="deletebutton" onclick="location.href='javascript:delete_ok('${u.seq}')'">삭제</button>
+                    <button type="button" id="deletebutton" onclick="location.href='javascript:delete_ok(${u.seq})'">삭제</button>
                 </td>
             </tr>
         </c:forEach>
