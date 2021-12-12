@@ -31,6 +31,7 @@ padding
 <br>
 
 <button type='submit'>로그인하기</button>
+<button type="button" onclick="location.href='signin'">회원가입</button>
 </form>
 </div>
 </body>

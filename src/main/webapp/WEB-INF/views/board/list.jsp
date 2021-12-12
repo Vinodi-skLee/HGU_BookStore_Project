@@ -33,7 +33,7 @@
         #list tr:hover {background-color: rgb(253, 251, 223);}
         
         #list th {
-            font-size: 14pt;
+            font-size: 10pt;
             padding-top: 10px;
             padding-bottom: 10px;
             text-align: center;
@@ -62,7 +62,7 @@
 </head>
 <body>
 	<h1>자유게시판</h1>
-	
+	<div id="username"></div>
 	<table id="list" width="90%">
         <tr>
             <th>No</th>

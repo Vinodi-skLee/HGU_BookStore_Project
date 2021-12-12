@@ -23,8 +23,6 @@ import com.mycom.spring4.user.UserVO;
 @Controller
 public class BoardController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
-	
 	@Autowired
 	BoardDAO boardService;
 	
@@ -34,7 +32,6 @@ public class BoardController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homePage(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -67,6 +64,22 @@ public class BoardController {
 			returnURL = "redirect:/login/login";
 		}
 		return returnURL;
+	}
+	
+	@RequestMapping(value = "/login/signin", method = RequestMethod.GET)
+	public String signin() {
+		return "/login/signin";
+	}
+	
+	
+	@RequestMapping(value = "/login/signinok", method = RequestMethod.POST)
+	public String signinOK(UserVO vo) {
+		int i = userService.insertUser(vo);
+		if (i==0)
+			System.out.println("회원 추가 실패!");
+		else
+			System.out.println("회원 추가 성공!!!");
+		return "redirect:/login/login";
 	}
 	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)

@@ -17,4 +17,9 @@ public class UserDAO {
 		UserVO one = sqlSession.selectOne("User.getUser", vo);
 		return one;
 	}
+	
+	public int insertUser(UserVO vo) {
+		int count = sqlSession.insert("User.insertUser", vo);
+		return count;
+	}
 }
