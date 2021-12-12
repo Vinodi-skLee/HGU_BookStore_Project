@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Board">
+	<insert id="insertBoard">
+		insert into book (major, title, writer, publish, content, price, id, progress) values (#{major} , #{title} , #{writer} , #{publish} , #{content} , #{price} , #{id} , #{progress})
+	</insert>
+	<update id="updateBoard">
+		update book
+		set major=#{major}, title=#{title}, writer=#{writer}, publish=#{publish}, content=#{content}, price=#{price}, id=#{id}, progress=#{progress} where seq=#{seq}
+	</update>
+	<delete id="deleteBoard">
+		delete from book where seq=#{seq}
+	</delete>
+	<select id="getBoard" resultType="board">
+		select * from book where seq=#{seq}
+	</select>
+	<select id="getBoardList" resultType="board">
+		select * from book order by seq desc
+	</select>
+</mapper>
