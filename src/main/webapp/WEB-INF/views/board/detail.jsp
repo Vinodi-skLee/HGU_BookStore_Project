@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>게시물 상세사항</h1>
-	<div id="major">전공 : </div>
+	<div id="major">전공: </div>
 	
 </body>
 </html>
