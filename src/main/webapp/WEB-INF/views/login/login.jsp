@@ -22,15 +22,16 @@ padding
 
 <body>
 <div style='width:100%;text-align:center;padding-top:100px'>
-<img src='../img/bookstore.jpg' height="500">
+<img src='./img/bookstore.jpg' height="500">
 
-<form method="post" action="loginOk">
+<form method="post" action="login/loginOk">
 <div><label>User ID: </label><input type='text' name='userid' /></div>
 <div><label>Password: </label>
 <input type='password' name='password' /></div>
 <br>
 
-<button type='submit'>로그인하기</button>
+<button type='submit'>로그인</button>
+<button type="button" onclick="location.href='login/signin'">회원가입</button>
 </form>
 </div>
 </body>

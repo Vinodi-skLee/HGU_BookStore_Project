@@ -2,7 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="User">
+
+	<insert id="insertUser">
+		insert into member (userid, password, username) values (#{userid} , #{password} , #{username})
+	</insert>
+	
 	<select id="getUser" resultType="user">
 		select userid, username from member where userid=#{userid} and password=#{password}
+	</select>
+	
+	<select id="getDuplicatedUser" resultType="user">
+		select userid, password from member where userid=#{userid} or password=#{password}
 	</select>
 </mapper>

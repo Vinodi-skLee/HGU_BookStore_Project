@@ -9,7 +9,7 @@
 <body>
 	<h1>새 글쓰기</h1>
 	<form action="addok" method="post">
-		<table id="edit">
+		<table id="add">
 			<tr><td>카테고리</td><td><input type="text" name="category" /></td></tr>
 			<tr><td>제목</td><td><input type="text" name="title" /></td></tr>
 			<tr><td>글쓴이</td><td><input type="text" name="writer" /></td></tr>
