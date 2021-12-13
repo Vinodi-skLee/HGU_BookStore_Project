@@ -2,12 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Board">
 	<insert id="insertBoard">
-		insert into book (major, title, writer, publish, price, content, photo, id, progress) values (major=#{major}, title=#{title}, writer=#{writer}, publish=#{publish}, price=#{price}, content=#{content}, photo=#{photo}, id=#{id}, progress=#{progress})
+		insert into book (major, title, writer, publish, price, content, photo, id, progress) values (#{major} , #{title} , #{writer} , #{publish} , #{price} , #{content} , #{photo} , #{id} , #{progress})
 	</insert>
 	<update id="updateBoard">
-		update book 
-		set major=#{major}, title=#{title}, writer=#{writer}, publish=#{publish}, price=#{price}, content=#{content}, photo=#{photo}, id=#{id}, progress=#{progress} 
-		where seq=#{seq}
+		update book set major=#{major}, title=#{title}, writer=#{writer}, publish=#{publish}, price=#{price}, content=#{content}, photo=#{photo}, id=#{id}, progress=#{progress} where seq=#{seq}
 	</update>
 	<delete id="deleteBoard">
 		delete from book where seq=#{seq}

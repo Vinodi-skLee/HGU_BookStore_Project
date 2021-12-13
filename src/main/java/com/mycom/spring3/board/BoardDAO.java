@@ -22,11 +22,12 @@ public class BoardDAO {
 	}
 		
 	public int updateBoard(BoardVO vo) {
-		return sqlSession.update("Board.updateBoard", vo);
+		int result = sqlSession.update("Board.updateBoard", vo); 
+		return result;
 	}	
 	
 	public BoardVO getBoard(int seq) {
-		BoardVO one = sqlSession.selectOne("Board.getBoardList");
+		BoardVO one = sqlSession.selectOne("Board.getBoard");
 		return one;
 	}
 	
