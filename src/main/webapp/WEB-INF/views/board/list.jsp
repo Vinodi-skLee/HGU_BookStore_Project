@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="com.mycom.spring3.board.BoardDAO,com.mycom.spring3.board.BoardVO,java.util.*"%>
+<%@ page import="com.mycom.spring3.board.BoardDAO,com.mycom.spring3.board.BoardVO,java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -52,50 +52,48 @@
         
         
       </style>
-<script>
-	function delete_ok(id) {
-		var a = confirm("정말로 삭제하겠습니까?");
-		if (a)
-			location.href = 'deleteok/' + id;
-	}
-</script>
+	<script>
+		function delete_ok(id) {
+			var a = confirm("정말로 삭제하겠습니까?");
+			if (a)
+				location.href = 'deleteok/' + id;
+		}
+	</script>
 </head>
 <body>
-	<h1>자유게시판</h1>
+	<h1>Handong Market</h1>
 	<div id="username"></div>
 	<table id="list" width="90%">
         <tr>
             <th>No</th>
-            <th>학부</th>
-            <th>책 사진</th>
-            <th>내용</th>
-            <th>거래상태</th>
+            <th>Major</th>
+            <th>Book Image</th>
+            <th>Content</th>
+            <th>Progress</th>
             <th></th>
-
         </tr>
 		<c:forEach items="${list}" var="u">
             <tr>
                 <td>${u.seq}</td>
                 <td>${u.major}</td>
                 <td><img src="../img/dm.jpg" width="150"/></td>
-                <!--<img src="../img/me.jpg" width="300"/>-->
                 <td style="text-align: left;">
-                	<br>책 제목 : ${u.title}
-                    <br><br>저자 : ${u.writer}<br>
-                    <br>출판사 : ${u.publish}<br>
-                    <br>가격 : ${u.price}<br>
-                    <br>카톡아이디 : ${u.id}<br>
-                    <br>게시일자 : ${u.regdate}
+                	<br>Title : ${u.title}<br>
+                    <br>Writer : ${u.writer}<br>
+                    <br>Publish : ${u.publish}<br>
+                    <br>Price : ${u.price}<br>
+                    <br>Kakaotalk ID : ${u.id}<br>
+                    <br>Regdate : ${u.regdate}
                 </td>
-                <td>${u.progress}</td>
+                <td>${u.getProgress()}</td>
                 <td style="align-items:flex-end;">
-                    <button type="button" id="detailbutton" onclick="location.href='detail/${u.seq}'">상세보기</button><br><br>
-                    <button type="button" id="editbutton" onclick="location.href='editform/${u.seq}'">수정</button><br><br>
-                    <button type="button" id="deletebutton" onclick="location.href='javascript:delete_ok(${u.seq})'">삭제</button>
+                    <button type="button" id="detailbutton" onclick="location.href='detail/${u.seq}'">DETAIL</button><br><br>
+                    <button type="button" id="editbutton" onclick="location.href='editform/${u.seq}'">EDIT</button><br><br>
+                    <button type="button" id="deletebutton" onclick="location.href='javascript:delete_ok(${u.seq})'">DEL</button>
                 </td>
             </tr>
         </c:forEach>
 	</table>
-	<br/><button type="button" onclick="location.href='add'">새글쓰기</button>
+	<br/><button type="button" onclick="location.href='add'">New Post</button>
 </body>
 </html>

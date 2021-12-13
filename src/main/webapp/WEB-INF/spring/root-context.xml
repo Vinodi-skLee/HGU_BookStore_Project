@@ -13,6 +13,7 @@
 	
 	<bean id="boardService" class="com.mycom.spring3.board.BoardServiceImpl" />
 	<bean id="boardDAO" class="com.mycom.spring3.board.BoardDAO" />
+	
 	<bean id="userService" class="com.mycom.spring4.user.UserServiceImpl" />
 	<bean id="userDAO" class="com.mycom.spring4.user.UserDAO" />
 	

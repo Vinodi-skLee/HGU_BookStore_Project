@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시물 상세페이지</title>
+<title>Detail Page</title>
 </head>
 <body>
-	<h1>게시물 상세사항</h1>
-	<div id="major">전공: </div>
+	<h1>Detail</h1>
+	<div id="major">Major: </div>
 	
 </body>
 </html>
