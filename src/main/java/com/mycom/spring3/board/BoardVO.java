@@ -8,11 +8,12 @@ public class BoardVO {
 	private String title;
 	private String writer;
 	private String publish;
+	private String price;
 	private String content;
-	private Date regdate;
-	private int price;
+	private String photo;
 	private String id;
 	private String progress;
+	private Date regdate;
 	
 	public int getSeq() {
 		return seq;
@@ -44,23 +45,23 @@ public class BoardVO {
 	public void setPublish(String publish) {
 		this.publish = publish;
 	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getRegdate() {
-		return regdate;
+	public String getPhoto() {
+		return photo;
 	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
-	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	public String getId() {
 		return id;
@@ -74,12 +75,11 @@ public class BoardVO {
 	public void setProgress(String progress) {
 		this.progress = progress;
 	}
-	
-	public String toString() {
-		return "BoardVO [seq=" + seq + ", major=" + major + ", title=" + title + ", writer=" + writer + ", publish="
-				+ publish + ", content=" + content + ", regdate=" + regdate + ", price=" + price + ", id=" + id
-				+ ", progress=" + progress + "]";
+	public Date getRegdate() {
+		return regdate;
 	}
-	
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
 	
 }
