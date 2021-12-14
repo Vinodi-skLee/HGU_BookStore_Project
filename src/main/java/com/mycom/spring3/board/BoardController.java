@@ -114,7 +114,13 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/board/detail/{id}", method = RequestMethod.GET)
-	public String detail(@PathVariable("id") int id) {
+	public String detail(@PathVariable("id") int id, Model model) {
+		System.out.println("detail 들어옴!");
+		BoardVO one = boardService.getBoard(id);
+		if (one == null) { 
+			System.out.println("데이터 없음!");
+		}
+		model.addAttribute("one", one);
 		return "/board/detail";
 	}
 	

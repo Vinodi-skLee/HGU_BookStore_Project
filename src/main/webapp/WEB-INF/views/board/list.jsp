@@ -76,7 +76,7 @@
             <tr>
                 <td>${u.seq}</td>
                 <td>${u.major}</td>
-                <td><img src="../img/dm.jpg" width="150"/></td>
+                <td><img src="../img/${u.photo}" width="150"/></td>
                 <td style="text-align: left;">
                 	<br>Title : ${u.title}<br>
                     <br>Writer : ${u.writer}<br>
