@@ -26,8 +26,8 @@ public class BoardDAO {
 		return result;
 	}	
 	
-	public BoardVO getBoard(int seq) {
-		BoardVO one = sqlSession.selectOne("Board.getBoard", seq);
+	public BoardVO getBoard(int id) {
+		BoardVO one = sqlSession.selectOne("Board.getBoard", id);
 		return one;
 	}
 	
