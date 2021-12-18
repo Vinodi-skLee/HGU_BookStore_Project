@@ -29,7 +29,7 @@ public class BoardController {
 	@RequestMapping(value = "/login/loginOk", method = RequestMethod.POST)
 	public String loginCheck(HttpSession session, UserVO vo) {
 		String returnURL = "";
-		System.out.println("한동책방 입장!");
+		System.out.println("Welcome to Handong Market!");
 		if (session.getAttribute("login") != null) {
 			session.removeAttribute("login");
 		}
